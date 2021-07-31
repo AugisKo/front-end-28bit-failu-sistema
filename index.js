@@ -1,5 +1,5 @@
-const { log } = require('console');
 const _data = require('./lib/data');
+const helpers = require('./lib/helpers');
 
 // _data.read('users', 'petras', (err, data) => {
 //     if (err || !data) {
@@ -7,7 +7,8 @@ const _data = require('./lib/data');
 //         return false;
 //     }
 
-//     const obj = JSON.parse(data);
+//     console.log(data);
+//     const obj = helpers.parseJsonToObject(data);
 //     console.log(obj);
 // })
 
@@ -27,7 +28,7 @@ const _data = require('./lib/data');
 //             return false;
 //         }
 
-//         const obj = JSON.parse(data);
+//         const obj = helpers.parseJsonToObject(data);
 //         console.log(obj);
 //     })
 // });
@@ -52,16 +53,25 @@ const _data = require('./lib/data');
 //             return false;
 //         }
 
-//         const obj = JSON.parse(data);
+//         const obj = helpers.parseJsonToObject(data);
 //         console.log(obj);
 //     })
 // });
 
-_data.delete('users', 'maryte', (err) => {
-    if (err) {
+// _data.delete('users', 'maryte', (err) => {
+//     if (err) {
+//         console.log(err);
+//         return false;
+//     }
+
+//     console.log('Failas sekmingai istrintas.');
+// })
+
+_data.list('marks', (err, data) => {
+    if (err || !data) {
         console.log(err);
         return false;
     }
 
-    console.log('Failas sekmingai istrintas.');
+    console.log(data);
 })
